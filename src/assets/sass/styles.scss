@@ -1,6 +1,9 @@
 @import 'vars.scss';
 @import 'mixins.scss';
 
+/*Import Angular Material Theme*/
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 * {
     box-sizing: border-box;
     margin: 0px;
@@ -73,12 +76,6 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
     }
 }
 
-/*
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]), textarea:focus:not([readonly]) {
-    border: 1px solid $primary-color;
-    box-shadow: none;
-}*/
-
 textarea.materialize-textarea, textarea {
     font-size: 16px;
     height: 75px;
@@ -89,3 +86,17 @@ textarea.materialize-textarea, textarea {
 .required {
     color: $red-color;
 }
+
+/*Material progress bar*/
+//Material loader
+app-loader .mat-progress-bar {
+    left: 0px;
+    position: absolute;
+    top: 0px;
+}
+.mat-progress-bar-buffer {
+    background-color: $white-dark;
+}
+    .mat-progress-bar-fill::after {
+        background-color: $primary-color;
+    }

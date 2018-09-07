@@ -13,6 +13,7 @@ export class LoginPageComponent implements OnInit {
 
   loginform: FormGroup;
   error = { show: false, msg: '' }
+  loader = { show: false, position: 'absolute', align: 'top', mode: "indeterminate" }
 
   constructor(
     private _authService: AuthService,
@@ -35,6 +36,9 @@ export class LoginPageComponent implements OnInit {
 
   //Login function
   login(frm) {
+
+    this.loader.show = true;
+
     this._authService.login(frm.value.user, frm.value.password)
       .map(resp => resp.json())
       .subscribe(
@@ -42,11 +46,13 @@ export class LoginPageComponent implements OnInit {
           localStorage.setItem('4ccT0k3n', data.access_token)
           localStorage.setItem('U53r', data.user._id)
 
+          this.loader.show = false;
           this._router.navigate(['/dashboard']);
         },
         err => {
           this.error.show = true;
           this.error.msg = this._mapError.getMessage(err.json(), 'usuario')
+          this.loader.show = false;
         }
       )
   }

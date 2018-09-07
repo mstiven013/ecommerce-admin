@@ -1,3 +1,5 @@
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
 <form (ngSubmit)="login(loginForm)" [formGroup]="loginform" #loginForm="ngForm">
   <div class="form-group">
     <label for="user">Usuario / Correo electrónico</label>

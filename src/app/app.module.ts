@@ -2,6 +2,13 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Material
+import 'hammerjs';
+import 'materialize-css';
+import { MatTooltipModule, MatTabsModule, MatCheckboxModule, MatProgressBarModule, MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 //Forms
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,17 +24,31 @@ import { RecoverPasswordPageComponent } from './pages/recover-password/recover-p
 import { RouterModule } from '@angular/router';
 
 //Routes
-import { AuthRoutes } from './routes/auth.routes';
+import { AppRoutes } from './routes/routes';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { LoaderComponent } from './common/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RecoverPasswordPageComponent
+    RecoverPasswordPageComponent,
+    DashboardPageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+
+    //Material
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    MatExpansionModule,
+    MatTabsModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatMenuModule,
 
     //Http module
     HttpClientModule,
@@ -38,7 +59,7 @@ import { AuthRoutes } from './routes/auth.routes';
 
     //Routes
     RouterModule.forRoot(
-      AuthRoutes,
+      AppRoutes,
       { enableTracing: false }
     )
   ],
