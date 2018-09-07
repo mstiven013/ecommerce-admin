@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth/auth.service';
+import { MapErrorService } from '../../services/error/map-error.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -9,8 +12,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginPageComponent implements OnInit {
 
   loginform: FormGroup;
+  error = { show: false, msg: '' }
 
-  constructor() { }
+  constructor(
+    private _authService: AuthService,
+    private _mapError: MapErrorService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
 
@@ -27,7 +35,20 @@ export class LoginPageComponent implements OnInit {
 
   //Login function
   login(frm) {
-    console.log(frm.value)
+    this._authService.login(frm.value.user, frm.value.password)
+      .map(resp => resp.json())
+      .subscribe(
+        data => {
+          localStorage.setItem('4ccT0k3n', data.access_token)
+          localStorage.setItem('U53r', data.user._id)
+
+          this._router.navigate(['/dashboard']);
+        },
+        err => {
+          this.error.show = true;
+          this.error.msg = this._mapError.getMessage(err.json(), 'usuario')
+        }
+      )
   }
 
 }

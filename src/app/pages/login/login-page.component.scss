@@ -1,13 +1,28 @@
+@import 'vars.scss';
+@import 'mixins.scss';
+
 form {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     width: 500px;
 }
 
 input {
-    border-radius: 5px;
     border: 1px solid #cccccc;
-    padding: 10px 15px;
-    outline: 0;
+    text-align: center;
     width: 100%;
+}
+
+.recover {
+    margin-top: 10px;
+
+    a {
+        color: $gray-dark;
+        font-size: $sm-font;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

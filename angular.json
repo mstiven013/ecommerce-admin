@@ -25,6 +25,9 @@
             "styles": [
               "src/assets/sass/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/sass/imports"]
+            },
             "scripts": [
               "node_modules/hammerjs/hammer.js"
             ]
@@ -76,6 +79,9 @@
             "styles": [
               "src/assets/sass/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/sass/imports"]
+            },
             "scripts": [
               "node_modules/hammerjs/hammer.js"
             ],
