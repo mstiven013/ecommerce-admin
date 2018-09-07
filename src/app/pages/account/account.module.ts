@@ -1,6 +1,9 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//Routes
+import { AccountRoutes } from './account.routes';
 import { RouterModule } from '@angular/router';
 
 //Material
@@ -18,52 +21,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule, Http, Headers, RequestOptions, URLSearchParams, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-//Init page components
-import { AppComponent } from './app.component';
+//Common components
+import { LoaderComponent } from '../../common/loader/loader.component';
 
 //Account page components
-import { HomeModule } from './pages/home/home.module';
-import { AccountModule } from './pages/account/account.module';
-
-//Common components
-import { LoaderComponent } from './common/loader/loader.component';
+import { DashboardPageComponent } from '../../pages/account/dashboard-page/dashboard-page.component';
+import { AppModule } from '../../app.module';
+import { HomeModule } from '../home/home.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoaderComponent
+    DashboardPageComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule,
-
-    //Material
-    MatIconModule,
-    BrowserAnimationsModule,
-    MatTooltipModule,
-    MatExpansionModule,
-    MatTabsModule,
-    MatCheckboxModule,
-    MatProgressBarModule,
-    MatMenuModule,
-
-    //Http module
-    HttpClientModule,
-    HttpModule,
-
-    //Forms
-    ReactiveFormsModule,
-
-    //Custom modules
-    HomeModule,
-    AccountModule,
-    RouterModule
+    CommonModule,
+    //Routes
+    RouterModule.forRoot(
+      AccountRoutes,
+      { enableTracing: false }
+    )
   ],
   providers: [],
-  exports: [
-    LoaderComponent    
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
-export class AppModule { }
+export class AccountModule { }
