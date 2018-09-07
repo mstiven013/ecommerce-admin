@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth/auth.service';
-import { MapErrorService } from '../../services/error/map-error.service';
+import { AuthService } from '../../../services/auth/auth.service';
+import { MapErrorService } from '../../../services/error/map-error.service';
 import { Router } from '@angular/router';
 
 @Component({

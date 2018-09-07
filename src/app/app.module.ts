@@ -2,6 +2,10 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Routes
+import { AppRoutes } from './routes/routes';
+import { RouterModule } from '@angular/router';
+
 //Material
 import 'hammerjs';
 import 'materialize-css';
@@ -19,14 +23,14 @@ import 'rxjs/add/operator/map';
 
 //Init page components
 import { AppComponent } from './app.component';
-import { LoginPageComponent } from './pages/login/login-page.component';
-import { RecoverPasswordPageComponent } from './pages/recover-password/recover-password-page.component';
-import { RouterModule } from '@angular/router';
+import { LoginPageComponent } from './pages/home/login/login-page.component';
+import { RecoverPasswordPageComponent } from './pages/home/recover-password/recover-password-page.component';
 
-//Routes
-import { AppRoutes } from './routes/routes';
-import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+//Common components
 import { LoaderComponent } from './common/loader/loader.component';
+
+//Account page components
+import { DashboardPageComponent } from './pages/account/dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
