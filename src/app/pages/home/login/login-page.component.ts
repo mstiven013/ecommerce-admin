@@ -43,11 +43,19 @@ export class LoginPageComponent implements OnInit {
       .map(resp => resp.json())
       .subscribe(
         data => {
-          localStorage.setItem('4ccT0k3n', data.access_token)
-          localStorage.setItem('U53r', data.user._id)
+
+          if(data.user.role[0] != 'CLIENT') {
+            localStorage.setItem('4ccT0k3n', data.access_token)
+            localStorage.setItem('U53r', data.user._id)
+
+            this._router.navigate(['dashboard']);
+          } else {
+            this.error.show = true;
+            this.error.msg = 'No tienes acceso al panel de administración'
+          }
 
           this.loader.show = false;
-          this._router.navigate(['/dashboard']);
+          
         },
         err => {
           this.error.show = true;

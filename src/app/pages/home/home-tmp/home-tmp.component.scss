@@ -8,6 +8,10 @@ img.logo {
     margin-left: auto;
     margin-right: auto;
     width: auto;
+
+    @media screen and (max-width: 600px) {
+        height: 100px;
+    }
 }
 
 form {
@@ -15,6 +19,10 @@ form {
     margin-right: auto;
     text-align: center;
     width: 500px;
+
+    @media screen and (max-width: 600px) {
+        width: 90%;
+    }
 }
 
 input {

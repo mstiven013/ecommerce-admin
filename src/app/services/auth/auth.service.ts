@@ -28,6 +28,13 @@ export class AuthService {
   }
 
   isUserLoggedIn() {
-    
+    let token = localStorage.getItem('4ccT0k3n');
+    let user = localStorage.getItem('U53r');
+
+    if(token === undefined || user === undefined || token === null || user === null) {
+      this._router.navigate(['/']);
+    } else {
+      return true;
+    }
   }
 }
