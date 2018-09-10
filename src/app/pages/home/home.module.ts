@@ -27,11 +27,11 @@ import { LoginPageComponent } from '../../pages/home/login/login-page.component'
 import { RecoverPasswordPageComponent } from '../../pages/home/recover-password/recover-password-page.component';
 
 //Common components
-import { LoaderComponent } from '../../common/loader/loader.component';
 import { AppModule } from '../../app.module';
 import { HomeTmpComponent } from './home-tmp/home-tmp.component';
 import { AccountModule } from '../account/account.module';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { CommonModule } from '@angular/common';
     HomeTmpComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -56,6 +57,10 @@ import { CommonModule } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressBarModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatExpansionModule,
 
     //Routes
     RouterModule.forRoot(

@@ -30,7 +30,7 @@ import { LoaderComponent } from './common/loader/loader.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -55,12 +55,12 @@ import { LoaderComponent } from './common/loader/loader.component';
     ReactiveFormsModule,
 
     //Custom modules
-    HomeModule,
-    AccountModule,
     RouterModule
   ],
   providers: [],
-  exports: [],
+  exports: [
+    LoaderComponent    
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class SharedModule { }
