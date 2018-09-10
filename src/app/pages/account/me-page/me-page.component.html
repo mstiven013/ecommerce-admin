@@ -1,0 +1,47 @@
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+<p class="title">
+  ¡Hola, <span>{{user.name}}</span>!
+</p>
+
+<form *ngIf="showForm" (ngSubmit)="updateUserInfo(userForm)" [formGroup]="userform" #userForm="ngForm">
+  <div class="row">
+
+    <!--Name column-->
+    <div class="col s12 m6 l6">
+      <label for="name"><span class="required">*</span> Nombre:</label>
+      <input type="text" id="name" formControlName="name" name="name" placeholder="Escribe aquí tu nombre...">
+    </div>
+
+    <!--Lastname column-->
+    <div class="col s12 m6 l6">
+      <label for="lastname">Apellidos:</label>
+      <input type="text" id="lastname" formControlName="lastname" name="lastname" placeholder="Escribe aquí tus apellidos...">
+    </div>
+
+    <!--Email column-->
+    <div class="col s12 m4 l4">
+      <label for="email"><span class="required">*</span> Correo electrónico:</label>
+      <input type="text" id="email" formControlName="email" name="email" autocomplete="off" placeholder="Escribe aquí tu correo electrónico...">
+    </div>
+
+    <!--Mobile column-->
+    <div class="col s12 m4 l4">
+      <label for="mobile"><span class="required">*</span> Número de celular:</label>
+      <input type="text" id="mobile" formControlName="mobile" name="mobile" placeholder="Escribe aquí tu número de celular...">
+    </div>
+
+    <!--Phone column-->
+    <div class="col s12 m4 l4">
+      <label for="phone"><span class="required">*</span> Número de teléfono:</label>
+      <input type="text" id="phone" formControlName="phone" name="phone" placeholder="Escribe aquí tu número de teléfono fijo...">
+    </div>
+
+    <!--Buttons column-->
+    <div class="col s12 m12 l12">
+      <input type="submit" class="button primary" value="Actualizar información">
+      <input type="reset" class="button danger" value="Limpiar formulario">
+    </div>
+
+  </div>
+</form>

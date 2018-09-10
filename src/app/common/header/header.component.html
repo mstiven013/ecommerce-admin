@@ -1,16 +1,16 @@
 <div class="header" id="header">
 
     <a (click)="hiddeMenu()" class="hide-menu-btn" id="hide-menu-btn">
-        <span class="icon-arrow-left2"></span>
-        <span class="icon-arrow-right2"></span>
+        <span class="icon-th-small"></span>
+        <span class="icon-th-menu"></span>
     </a>
     
-    <a routerLink="me" class="user-btn" [matMenuTriggerFor]="userMenu">
+    <a class="user-btn" [matMenuTriggerFor]="userMenu">
         <span class="icon-user"></span> {{user.name}} {{user.lastname}}
     </a>
 
     <mat-menu #userMenu="matMenu" class="user-menu">
-        <li><a routerLink="/me">Mi cuenta</a></li>
+        <li><a routerLink="/account/me">Mi cuenta</a></li>
         <li><a (click)="logout()">Cerrar sesión</a></li>
     </mat-menu>
 

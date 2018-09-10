@@ -5,6 +5,7 @@
     height: 100%;
     @include calc(max-height, '100% - 50px');
     left: 20%;
+    padding: 20px;
     position: fixed;
     top: 50px;
     @include transition('all 0.4s ease');
@@ -14,4 +15,9 @@
         left: 50px;
         @include calc(width, '100% - 50px');
     }
+}
+
+input[type="reset"] {
+    margin-left: 10px;
+    margin-right: 10px;
 }
