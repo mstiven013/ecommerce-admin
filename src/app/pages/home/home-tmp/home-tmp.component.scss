@@ -1,6 +1,15 @@
 @import 'vars.scss';
 @import 'mixins.scss';
 
+img.logo {
+    display: block;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+}
+
 form {
     margin-left: auto;
     margin-right: auto;
@@ -12,6 +21,10 @@ input {
     border: 1px solid #cccccc;
     text-align: center;
     width: 100%;
+
+    &[type="submit"], &[type="button"] {
+        border: none;
+    }
 }
 
 .link {
@@ -20,6 +33,11 @@ input {
     a {
         color: $gray-dark;
         font-size: $sm-font;
+
+        span {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
 
         &:hover {
             text-decoration: underline;
