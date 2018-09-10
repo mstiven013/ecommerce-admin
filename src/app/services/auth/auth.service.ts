@@ -27,6 +27,13 @@ export class AuthService {
     return this._http.post(config.API_URL + '/login', params.toString(), options);
   }
 
+  logout() {
+    localStorage.getItem('4ccT0k3n');
+    localStorage.getItem('U53r');
+
+    this._router.navigate(['/admin']);
+  }
+
   isUserLoggedIn() {
     let token = localStorage.getItem('4ccT0k3n');
     let user = localStorage.getItem('U53r');
