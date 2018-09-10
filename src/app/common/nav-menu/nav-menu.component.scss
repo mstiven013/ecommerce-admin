@@ -8,5 +8,12 @@
     height: 100%;
     position: fixed;
     top: 0px;
+    right: 80%;
+    @include transition('all 0.4s ease');
     width: 20%;
+
+    &.menu-hidden {
+        @include calc(left, '-20% + 50px');
+        @include calc(right, '100% - 50px');
+    }
 }

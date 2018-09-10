@@ -28,10 +28,10 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.getItem('4ccT0k3n');
-    localStorage.getItem('U53r');
+    localStorage.removeItem('4ccT0k3n');
+    localStorage.removeItem('U53r');
 
-    this._router.navigate(['/admin']);
+    this._router.navigate(['/']);
   }
 
   isUserLoggedIn() {
@@ -43,5 +43,16 @@ export class AuthService {
     } else {
       return true;
     }
+  }
+
+  getUserInfo(id) {
+
+    let token = localStorage.getItem('4ccT0k3n');
+
+    let headers = new Headers({'Content-type': 'application/json', 'Authorization': 'Bearer '+ token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.get(config.API_URL + '/users/' + id, options);
+
   }
 }

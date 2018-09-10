@@ -101,3 +101,26 @@ app-loader .mat-progress-bar {
     .mat-progress-bar-fill::after {
         background-color: $primary-color;
     }
+
+/*Header User menu*/
+.user-menu {
+    margin-top: 50px;
+
+    li {
+        list-style: none;
+
+        a {
+            color: $gray-dark;
+            cursor: pointer;
+            display: inline-block;
+            font-size: $md-font;
+            padding: 10px 15px;
+            @include transition('all 0.4s ease');
+            width: 100%;
+
+            &:hover, &:active {
+                background-color: $gray-sup-light;
+            }
+        }
+    }
+}
