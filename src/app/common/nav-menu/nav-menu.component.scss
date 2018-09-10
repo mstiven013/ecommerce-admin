@@ -1,0 +1,12 @@
+@import 'vars.scss';
+@import 'mixins.scss';
+
+.nav-menu {
+    background-color: $primary-color;
+    color: $white-color;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    width: 20%;
+}

@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
             localStorage.setItem('4ccT0k3n', data.access_token)
             localStorage.setItem('U53r', data.user._id)
 
-            this._router.navigate(['dashboard']);
+            this._router.navigate(['account']);
           } else {
             this.error.show = true;
             this.error.msg = 'No tienes acceso al panel de administración'

@@ -32,10 +32,12 @@ import { LoaderComponent } from '../../common/loader/loader.component';
 
 //Account page components
 import { DashboardPageComponent } from '../../pages/account/dashboard-page/dashboard-page.component';
+import { AccountTmpComponent } from './account-tmp/account-tmp.component';
 
 @NgModule({
   declarations: [
-    DashboardPageComponent
+    DashboardPageComponent,
+    AccountTmpComponent
   ],
   imports: [
     SharedModule,

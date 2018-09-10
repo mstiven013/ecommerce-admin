@@ -27,10 +27,12 @@ import { AccountModule } from './pages/account/account.module';
 
 //Common components
 import { LoaderComponent } from './common/loader/loader.component';
+import { NavMenuComponent } from './common/nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
-    LoaderComponent
+    LoaderComponent,
+    NavMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { LoaderComponent } from './common/loader/loader.component';
   ],
   providers: [],
   exports: [
-    LoaderComponent    
+    LoaderComponent,
+    NavMenuComponent
   ],
   bootstrap: [AppComponent]
 })
