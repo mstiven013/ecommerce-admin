@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { MapErrorService } from '../../services/error/map-error.service';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { config } from '../../../config';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   //Declare vars
   user: any = { name: '', lastname: '' };
+  siteTitle: any = config.projectName;
 
   constructor(
       private _authService: AuthService,

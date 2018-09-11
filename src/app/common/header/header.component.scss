@@ -3,18 +3,18 @@
 
 .header {
     background-color: $gray-sup-light;
-    left: 20%;
+    border-bottom: 1px solid $gray-min-dark;
+    left: 0%;
     height: 50px;
     padding-left: 0;
     padding-right: 20px;
     position: fixed;
     top: 0px;
     @include transition('all 0.4s ease');
-    width: 80%;
+    width: 100%;
 
     &.menu-hidden {
-        left: 50px;
-        @include calc(width, '100% - 50px');
+        left: 0px;
     }
 }
 
@@ -28,29 +28,10 @@
     padding-right: 15px;
 }
 
-.user-btn {
-    @extend %header-btns;
-    float: right;
-    line-height: 47px;
-    @include transition('all 0.4s ease');
-
-    span {
-        color: $primary-color;
-        @include transition('all 0.4s ease');
-    }
-
-    &:hover {
-        background-color: $primary-color;
-        color: $white-color;
-
-        span {
-            color: $white-color;
-        }
-    }
-}
-
 .hide-menu-btn {
     @extend %header-btns;
+    background-color: $primary-color;
+    color: $white-color;
     float: left;
     font-size: $md-font;
     line-height: 50px;
@@ -74,5 +55,35 @@
     &:hover {
         background-color: $primary-color;
         color: $white-color;
+    }
+}
+
+.site-title {
+    float: left;
+    font-size: 24px;
+    font-weight: 900;
+    height: 50px;
+    line-height: 47px;
+    margin-left: 20px;
+}
+
+.user-btn {
+    @extend %header-btns;
+    float: right;
+    line-height: 47px;
+    @include transition('all 0.4s ease');
+
+    span {
+        color: $primary-color;
+        @include transition('all 0.4s ease');
+    }
+
+    &:hover {
+        background-color: $primary-color;
+        color: $white-color;
+
+        span {
+            color: $white-color;
+        }
     }
 }

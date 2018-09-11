@@ -1,3 +1,74 @@
-<div class="nav-menu" id="nav-menu">
-    Nav menu
-</div>
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+<ul *ngIf="showMenu" class="nav-menu" id="nav-menu">
+    <ul class="vmenu">
+        <li>
+            <a (click)="subMenuInteraction($event, 'books')">
+                <span class="icon icon-books"></span> <span class="text">Libros</span>
+            </a>
+
+            <ul class="submenu" data-menu="books">
+                <li><a routerLink="/">Añadir libro</a></li>
+                <li><a routerLink="/">Ver libros</a></li>
+                <li><a routerLink="/">Especialidades</a></li>
+                <li><a routerLink="/">Inventario</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'orders')">
+                <span class="icon icon-database"></span> <span class="text">Pedidos</span>
+            </a>
+
+            <ul class="submenu" data-menu="orders">
+                <li><a routerLink="/">Ver pedidos</a></li>
+                <li><a routerLink="/">Facturas</a></li>
+                <li><a routerLink="/">Carritos de compra</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'clients')">
+                <span class="icon icon-user-tie"></span> <span class="text">Clientes</span>
+            </a>
+
+            <ul class="submenu" data-menu="clients">
+                <li><a routerLink="/">Ver clientes</a></li>
+                <li><a routerLink="/">Direcciones</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'blog')">
+                <span class="icon icon-newspaper"></span> <span class="text">Blog</span>
+            </a>
+
+            <ul class="submenu" data-menu="blog">
+                <li><a routerLink="/">Ver publicaciones</a></li>
+                <li><a routerLink="/">Categorías</a></li>
+            </ul>
+        </li>
+        <li *ngIf="user.role[0] == 'SUPERADMIN'">
+            <a (click)="subMenuInteraction($event, 'users')">
+                <span class="icon icon-users"></span> <span class="text">Usuarios</span>
+            </a>
+
+            <ul class="submenu" data-menu="users">
+                <li><a routerLink="/">Ver usuarios</a></li>
+                <li><a routerLink="/">Añadir cliente</a></li>
+                <li><a routerLink="/">Añadir empleado</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'settings')">
+                <span class="icon icon-equalizer"></span> <span class="text">Ajustes</span>
+            </a>
+
+            <ul class="submenu" data-menu="settings">
+                <li><a routerLink="/">Configuración global</a></li>
+                <li><a routerLink="/">Optimización SEO</a></li>
+                <li><a routerLink="/">Contacto</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="logout()"><span class="icon icon-exit"></span> <span class="text">Cerrar sesión</span></a>
+        </li>
+    </ul>
+</ul>
