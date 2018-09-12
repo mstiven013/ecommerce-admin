@@ -21,3 +21,22 @@ input[type="reset"] {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.actions-bar {
+    background-color: $gray-sup-light;
+    border-left: 1px solid $gray-min-dark;
+    bottom: 0px;
+    left: 20%;
+    padding: 15px;
+    position: fixed;
+    text-align: right;
+    width: 80%;
+
+    .button {
+        margin: 0px 5px;
+
+        &:last-child {
+            margin-right: auto;
+        }
+    }
+}

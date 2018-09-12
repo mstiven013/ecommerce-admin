@@ -1,0 +1,27 @@
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+<form *ngIf="showForm">
+
+    <mat-tab-group class="single-book-tabs" (selectedTabChange)="changeSectionBook($event)">
+        <!--Description tab-->
+        <mat-tab label="Ajustes básicos">
+            <basic-settings-book></basic-settings-book>
+        </mat-tab>
+        <!--Index tab-->
+        <mat-tab label="Inventario">
+            Tab para Inventario
+        </mat-tab>
+        <mat-tab label="Precios">
+            Tab para precios
+        </mat-tab>
+        <mat-tab label="Transporte">
+            Tab para transporte
+        </mat-tab>
+        <mat-tab label="SEO">
+            Tab para SEO
+        </mat-tab>
+    </mat-tab-group>
+
+    <actions-bar-book></actions-bar-book>
+
+</form>

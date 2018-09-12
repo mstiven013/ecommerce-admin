@@ -7,6 +7,7 @@ import { AppModule } from '../../app.module';
 import { HomeModule } from '../home/home.module';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared.module';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 //Routes
 import { AccountRoutes } from './account.routes';
@@ -35,11 +36,24 @@ import { DashboardPageComponent } from '../../pages/account/dashboard-page/dashb
 import { AccountTmpComponent } from './account-tmp/account-tmp.component';
 import { MePageComponent } from './me-page/me-page.component';
 
+//Books pages
+import { BooksPagesComponent } from './books/books-pages.component';
+import { SingleBookPageComponent } from './books/single-book-page/single-book-page.component';
+import { AllBooksPageComponent } from './books/all-books-page/all-books-page.component';
+import { BasicSettingsBookComponent } from './books/single-book-page/basic-settings-book/basic-settings-book.component';
+import { ActionsBarBookComponent } from './books/single-book-page/actions-bar-book/actions-bar-book.component';
+
 @NgModule({
   declarations: [
     DashboardPageComponent,
     AccountTmpComponent,
-    MePageComponent
+    MePageComponent,
+    //Books
+    BooksPagesComponent,
+    SingleBookPageComponent,
+    ActionsBarBookComponent,
+    BasicSettingsBookComponent,
+    AllBooksPageComponent,
   ],
   imports: [
     SharedModule,
@@ -50,6 +64,8 @@ import { MePageComponent } from './me-page/me-page.component';
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
+
+    EditorModule,
 
     //Material
     MatButtonModule,

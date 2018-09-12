@@ -3,6 +3,9 @@ import { DashboardPageComponent } from "./dashboard-page/dashboard-page.componen
 import { AuthGuard } from "../../guards/auth.guard";
 import { AccountTmpComponent } from "./account-tmp/account-tmp.component";
 import { MePageComponent } from "./me-page/me-page.component";
+import { AllBooksPageComponent } from "./books/all-books-page/all-books-page.component";
+import { SingleBookPageComponent } from "./books/single-book-page/single-book-page.component";
+import { BooksPagesComponent } from "./books/books-pages.component";
 
 export const AccountRoutes: Routes = [
     { 
@@ -12,7 +15,15 @@ export const AccountRoutes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
             { path: '', component: DashboardPageComponent },
-            { path: 'me', component: MePageComponent }
+            { path: 'me', component: MePageComponent },
+            { 
+                path: 'books', 
+                component: BooksPagesComponent,
+                children: [
+                    { path: '', component: AllBooksPageComponent },
+                    { path: 'single', component: SingleBookPageComponent }
+                ]
+            }
         ]
     }
 ]

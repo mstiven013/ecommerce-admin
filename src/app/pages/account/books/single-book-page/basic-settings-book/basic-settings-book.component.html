@@ -1,0 +1,21 @@
+<div class="row">
+
+    <div class="col s12 m7 l7">
+        <input type="text" id="title" name="title" placeholder="Introduce el nombre del libro">
+    </div>
+    
+    <div class="col s12 m12 l12">
+        <mat-tab-group class="basic-settings-book-tabs" (selectedTabChange)="loadEditor($event)">
+            <!--Description tab-->
+            <mat-tab label="Descripción">
+                <editor *ngIf="showEditor.description" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+            </mat-tab>
+            <!--Index tab-->
+            <mat-tab label="Índice">
+                <editor *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+            </mat-tab>
+            <mat-tab label="Puntos clave">
+                <editor *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+            </mat-tab>
+        </mat-tab-group>
+    </div>

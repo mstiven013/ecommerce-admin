@@ -65,7 +65,7 @@ import { HeaderComponent } from './common/header/header.component';
   exports: [
     LoaderComponent,
     NavMenuComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   bootstrap: [AppComponent]
 })
