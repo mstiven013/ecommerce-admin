@@ -24,10 +24,16 @@ export class RecoverPasswordPageComponent implements OnInit {
 
   ngOnInit() {
 
+    //Redirect to account page if user is logged
+    if( localStorage.getItem('U53r') !== null && localStorage.getItem('4ccT0k3n') !== null) {
+      this._router.navigate(['/account']);
+    }
+
     //Generate form
     this.recoverform = new FormGroup({
       'email': new FormControl(null, [ Validators.required, Validators.email ])
     });
+    
   }
 
   sendEmail(frm) {
