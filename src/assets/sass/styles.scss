@@ -117,6 +117,10 @@ app-loader .mat-progress-bar {
     background-color: $primary-color;
 }
 
+.single-book-tabs .mat-tab-body-content {
+    padding: 20px 0px;
+}
+
 .basic-settings-book-tabs .mat-tab-body-content {
     background: $gray-sup-light;
     overflow: hidden;

@@ -1,7 +1,13 @@
 <div class="row">
 
     <div class="col s12 m7 l7">
-        <input type="text" id="title" name="title" placeholder="Introduce el nombre del libro">
+        <label for="title">Nombre del libro:</label>
+        <input type="text" id="title" name="title" placeholder="Escribe el nombre del libro">
+    </div>
+
+    <div class="col s12 m5 l5">
+        <label for="isbn">ISBN del libro:</label>
+        <input type="text" id="isbn" name="isbn" placeholder="ISBN del libro">
     </div>
     
     <div class="col s12 m12 l12">
@@ -19,3 +25,19 @@
             </mat-tab>
         </mat-tab-group>
     </div>
+
+    <div class="col s12 m7 l7">
+        <div class="input-field col s12 m4 l4">
+            <p>Caracteristica:</p>
+            <select2 [data]="charactsData"></select2>
+        </div>
+        <div class="input-field col s12 m4 l4">
+            <p>Valor predefinido:</p>
+            <select2 [data]="charactsData"></select2>
+        </div>
+        <div class="col s12 m4 l4">
+            <input type="text" name="attr-value-custom" id="attr-value-custom">
+        </div>
+    </div>
+
+</div>

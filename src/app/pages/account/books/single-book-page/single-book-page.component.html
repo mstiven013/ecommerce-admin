@@ -2,6 +2,8 @@
 
 <form *ngIf="showForm">
 
+    <p class="section-title">{{sectionTitle}}</p>
+
     <mat-tab-group class="single-book-tabs" (selectedTabChange)="changeSectionBook($event)">
         <!--Description tab-->
         <mat-tab label="Ajustes básicos">

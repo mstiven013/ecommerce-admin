@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 //Material
+import { Select2Module } from 'ng2-select2';
 import 'hammerjs';
 import 'materialize-css';
 import { MatTooltipModule, MatTabsModule, MatCheckboxModule, MatProgressBarModule, MatMenuModule } from '@angular/material';
@@ -50,6 +51,7 @@ import { HeaderComponent } from './common/header/header.component';
     MatCheckboxModule,
     MatProgressBarModule,
     MatMenuModule,
+    Select2Module,
 
     //Http module
     HttpClientModule,

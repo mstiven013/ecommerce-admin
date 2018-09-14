@@ -42,6 +42,7 @@ import { SingleBookPageComponent } from './books/single-book-page/single-book-pa
 import { AllBooksPageComponent } from './books/all-books-page/all-books-page.component';
 import { BasicSettingsBookComponent } from './books/single-book-page/basic-settings-book/basic-settings-book.component';
 import { ActionsBarBookComponent } from './books/single-book-page/actions-bar-book/actions-bar-book.component';
+import { Select2Module } from 'ng2-select2';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ActionsBarBookComponent } from './books/single-book-page/actions-bar-bo
     MatCheckboxModule,
     MatIconModule,
     MatExpansionModule,
+    Select2Module,
 
     //Routes
     RouterModule.forRoot(

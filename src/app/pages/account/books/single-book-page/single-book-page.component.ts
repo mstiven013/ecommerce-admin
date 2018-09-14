@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-single-book-page',
   templateUrl: './single-book-page.component.html',
@@ -41,6 +40,31 @@ export class SingleBookPageComponent implements OnInit {
   }
 
   changeSectionBook(e: any) {
+
+    switch (e.index) {
+      case 0:
+        this.sectionTitle = 'Ajustes básicos'
+        break;
+      
+      case 1:
+        this.sectionTitle = 'Inventario'
+        break;
+
+      case 2:
+        this.sectionTitle = 'Precios'
+        break;
+
+      case 3:
+        this.sectionTitle = 'Transporte'
+        break;
+
+      case 4:
+        this.sectionTitle = 'Optimización SEO'
+        break;
+    
+      default:
+        break;
+    }
     
   }
 
