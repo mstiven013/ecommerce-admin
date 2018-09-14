@@ -15,6 +15,36 @@
             </ul>
         </li>
         <li>
+            <a (click)="subMenuInteraction($event, 'specialties')">
+                <span class="icon icon-folder-open"></span> <span class="text">Especialidades</span>
+            </a>
+
+            <ul class="submenu" data-menu="specialties">
+                <li><a routerLink="/account/specialties">Todos las especialidades</a></li>
+                <li><a routerLink="/account/specialties/single">Añadir especialidad</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'authors')">
+                <span class="icon icon-profile"></span> <span class="text">Autores</span>
+            </a>
+
+            <ul class="submenu" data-menu="authors">
+                <li><a routerLink="/account/authors">Todos los autores</a></li>
+                <li><a routerLink="/account/authors/single">Añadir autor</a></li>
+            </ul>
+        </li>
+        <li>
+            <a (click)="subMenuInteraction($event, 'coupons')">
+                <span class="icon icon-price-tags"></span> <span class="text">Cupones</span>
+            </a>
+
+            <ul class="submenu" data-menu="coupons">
+                <li><a routerLink="/account/coupons">Todos los cupones</a></li>
+                <li><a routerLink="/account/coupons/single">Añadir cupón</a></li>
+            </ul>
+        </li>
+        <li>
             <a (click)="subMenuInteraction($event, 'orders')">
                 <span class="icon icon-database"></span> <span class="text">Pedidos</span>
             </a>
