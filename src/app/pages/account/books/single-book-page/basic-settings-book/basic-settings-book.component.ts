@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Select2OptionData } from 'ng2-select2';
 
+declare var jQuery: any;
+
 @Component({
   selector: 'basic-settings-book',
   templateUrl: './basic-settings-book.component.html',
@@ -44,6 +46,7 @@ export class BasicSettingsBookComponent {
 
   ngAfterViewInit() {
     this.showEditor.description = true;
+    jQuery('.normal-select').formSelect();
   }
 
   //Load editor in basic settings Material tabs

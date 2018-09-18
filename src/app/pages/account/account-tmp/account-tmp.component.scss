@@ -5,6 +5,7 @@
     height: 100%;
     @include calc(max-height, '100% - 50px');
     left: 20%;
+    overflow-x: auto;
     padding: 20px;
     position: fixed;
     top: 50px;
@@ -27,10 +28,11 @@ input[type="reset"] {
     border-left: 1px solid $gray-min-dark;
     bottom: 0px;
     left: 20%;
-    padding: 15px;
+    padding: 15px 2.5%;
     position: fixed;
     text-align: right;
     width: 80%;
+    z-index: 1000;
 
     .button {
         margin: 0px 5px;
