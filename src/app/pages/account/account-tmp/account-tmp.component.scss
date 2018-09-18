@@ -23,6 +23,21 @@ input[type="reset"] {
     margin-right: 10px;
 }
 
+.section-header {
+    border-bottom: 1px solid $gray-min-dark;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+    .title {
+        font-size: $lg-font;
+        font-weight: bold;
+    }
+
+    .actions {
+        text-align: right;
+    }
+}
+
 .actions-bar {
     background-color: $gray-sup-light;
     border-left: 1px solid $gray-min-dark;

@@ -19,6 +19,7 @@ import 'materialize-css';
 import { MatTooltipModule, MatTabsModule, MatCheckboxModule, MatProgressBarModule, MatMenuModule, MatButtonModule, MatTableModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { Select2Module } from 'ng2-select2';
 
 //Forms
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -42,7 +43,11 @@ import { SingleBookPageComponent } from './books/single-book-page/single-book-pa
 import { AllBooksPageComponent } from './books/all-books-page/all-books-page.component';
 import { BasicSettingsBookComponent } from './books/single-book-page/basic-settings-book/basic-settings-book.component';
 import { ActionsBarBookComponent } from './books/single-book-page/actions-bar-book/actions-bar-book.component';
-import { Select2Module } from 'ng2-select2';
+
+//Specialties pages
+import { SpecialtiesPagesComponent } from './specialties/specialties-pages.component';
+import { SingleSpecialtyPageComponent } from './specialties/single-specialty-page/single-specialty-page.component';
+import { AllSpecialtiesPageComponent } from './specialties/all-specialties-page/all-specialties-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +60,10 @@ import { Select2Module } from 'ng2-select2';
     ActionsBarBookComponent,
     BasicSettingsBookComponent,
     AllBooksPageComponent,
+    //Specialties
+    SpecialtiesPagesComponent,
+    AllSpecialtiesPageComponent,
+    SingleSpecialtyPageComponent,
   ],
   imports: [
     SharedModule,

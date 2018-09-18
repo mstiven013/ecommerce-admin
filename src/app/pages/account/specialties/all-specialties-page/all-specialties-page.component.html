@@ -1,0 +1,46 @@
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+
+<div class="row section-header valign-wrapper">
+    <div class="col s12 m6 l6">
+        <p class="title">
+            Especialidades
+        </p>
+    </div>
+    <div class="col s12 m6 l6 actions">
+        Botones de accion
+    </div>
+</div>
+
+<div *ngIf="showInfo" class="content-section">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre:</th>
+                <th>Descripción:</th>
+                <th>Acciones:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let spe of specialties;">
+                <ng-template [ngIf]="spe.top">
+                    <td class="title">
+                        {{ spe.title }}
+                    </td>
+                    <td class="description">
+                        {{ spe.description }}
+                    </td>
+                    <td class="actions">
+                        <a *ngIf="spe.childs && spe.childs > 0" routerLink="single/{{ spe._id }}" class="button primary">Ver</a>
+                        <a *ngIf="spe.childs && spe.childs < 1" routerLink="single/{{ spe._id }}" class="button primary">Editar</a>
+                    </td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="error.show" class="error-card">
+    {{error.msg}}
+</div>

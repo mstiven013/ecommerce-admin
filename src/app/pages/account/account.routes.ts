@@ -6,6 +6,9 @@ import { MePageComponent } from "./me-page/me-page.component";
 import { AllBooksPageComponent } from "./books/all-books-page/all-books-page.component";
 import { SingleBookPageComponent } from "./books/single-book-page/single-book-page.component";
 import { BooksPagesComponent } from "./books/books-pages.component";
+import { SpecialtiesPagesComponent } from "./specialties/specialties-pages.component";
+import { SingleSpecialtyPageComponent } from "./specialties/single-specialty-page/single-specialty-page.component";
+import { AllSpecialtiesPageComponent } from "./specialties/all-specialties-page/all-specialties-page.component";
 
 export const AccountRoutes: Routes = [
     { 
@@ -22,6 +25,15 @@ export const AccountRoutes: Routes = [
                 children: [
                     { path: '', component: AllBooksPageComponent },
                     { path: 'single', component: SingleBookPageComponent }
+                ]
+            },
+            { 
+                path: 'specialties',
+                component: SpecialtiesPagesComponent,
+                children: [
+                    { path: '', component: AllSpecialtiesPageComponent },
+                    { path: 'single', component: SingleSpecialtyPageComponent },
+                    { path: 'single/:id', component: SingleSpecialtyPageComponent }
                 ]
             }
         ]

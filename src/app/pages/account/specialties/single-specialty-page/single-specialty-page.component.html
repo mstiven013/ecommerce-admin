@@ -1,0 +1,28 @@
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+<div *ngIf="showInfo" class="row section-header valign-wrapper">
+    <div class="col s12 m6 l6">
+        <p *ngIf="specialty.title !== null" class="title">Editar: {{specialty.title}}</p>
+        <p *ngIf="specialty.title === null" class="title">Añadir especialidad</p>
+    </div>
+    <div class="col s12 m6 l6 actions">
+        Botones de accion
+    </div>
+</div>
+
+<div *ngIf="showInfo">
+    <div class="row form-group">
+        <label class="col s12 m4 l4" for="title">Nombre:</label>
+        <input class="col s12 m8 l8" type="text" id="title" name="title" value="{{specialty.title}}" placeholder="Nombre de la especialidad">
+    </div>
+
+    <div class="row form-group">
+        <label class="col s12 m4 l4" for="description">Descripción:</label>
+        <input class="col s12 m8 l8" type="text" id="description" name="description" value="{{specialty.description}}" placeholder="Descripción de la especialidad">
+    </div>
+
+    <div class="row form-group">
+        <label class="col s12 m4 l4" for="slug">URL amigable:</label>
+        <input class="col s12 m8 l8" type="text" id="slug" name="slug" value="{{specialty.slug}}" placeholder="URL amigable de la especialidad">
+    </div>
+</div>
