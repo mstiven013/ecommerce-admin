@@ -17,6 +17,7 @@
         <thead>
             <tr>
                 <th>Nombre:</th>
+                <th>Slug:</th>
                 <th>Descripción:</th>
                 <th>Acciones:</th>
             </tr>
@@ -27,6 +28,9 @@
                 <ng-template [ngIf]="spe.top">
                     <td class="title">
                         {{ spe.title }}
+                    </td>
+                    <td class="slug">
+                        {{ spe.slug }}
                     </td>
                     <td class="description">
                         {{ spe.description }}
