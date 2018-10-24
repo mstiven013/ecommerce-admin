@@ -1,1 +1,57 @@
-Todos los libros
+<app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+
+<div *ngIf="showInfo">
+    <table *ngIf="books.length > 0" class="table-books" [mfData]="books" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    <mfDefaultSorter by="title">Título:</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="specialty">Especialidad:</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="isbn">ISBN:</mfDefaultSorter>
+                </th>
+                <th>
+                    <mfDefaultSorter by="state">Estado:</mfDefaultSorter>
+                </th>
+                <th>Acciones:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let book of books;">
+                <td class="image">
+                    <img src="{{ book.image }}" alt="">
+                </td>
+                <td class="title">
+                    {{ book.title }}
+                </td>
+                <td class="specialty">
+                    {{ book.specialty[0].title }}
+                </td>
+                <td class="isbn">
+                    {{ book.isbn }}
+                </td>
+                <td class="state">
+                    <span *ngIf="book.state == 'PUBLISHED'">Publicado</span>
+                    <span *ngIf="book.state == 'DRAFT'">Borrador</span>
+                    <span *ngIf="book.state == 'TRASH'">En papelera</span>
+                </td>
+                <td class="actions">
+                    <a routerLink="single/{{ book._id }}" class="button primary">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

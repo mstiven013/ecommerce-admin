@@ -27,10 +27,15 @@ export class AllBooksPageComponent implements OnInit {
       .map(resp => resp.json())
       .subscribe(
         data => {
-          console.log(data)
+          this.books = data;
+          this.loader.show = false;
+          this.showInfo = true;
         },
         err => {
           console.log(err.json())
+          this.loader.show = false;
+          this.error.show = true;
+          this.error.msg = 'Ha ocurrido un error';
         }
       )
   }

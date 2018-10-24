@@ -57,3 +57,26 @@ input[type="reset"] {
         }
     }
 }
+
+/*Books tables*/
+.table-books {
+    font-size: 14px;
+
+    td.title {
+        width: 40%;
+    }
+
+    td.image {
+        width: 100px;
+
+        img {
+            max-width: 90%;
+        }
+    }
+
+    td.actions {
+        .button {
+            font-size: 14px;
+        }
+    }
+}

@@ -30,6 +30,7 @@ import { AccountModule } from './pages/account/account.module';
 import { LoaderComponent } from './common/loader/loader.component';
 import { NavMenuComponent } from './common/nav-menu/nav-menu.component';
 import { HeaderComponent } from './common/header/header.component';
+import { DataTableModule } from 'angular-6-datatable';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,9 @@ import { HeaderComponent } from './common/header/header.component';
     //Forms
     ReactiveFormsModule,
 
+    //Data table
+    DataTableModule,
+
     //Custom modules
     RouterModule
   ],
@@ -68,6 +72,7 @@ import { HeaderComponent } from './common/header/header.component';
     LoaderComponent,
     NavMenuComponent,
     HeaderComponent,
+    DataTableModule
   ],
   bootstrap: [AppComponent]
 })
