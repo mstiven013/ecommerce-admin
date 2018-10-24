@@ -127,6 +127,18 @@ app-loader .mat-progress-bar {
     padding: 20px;
 }
 
+/*Nav menu*/
+nav-menu {
+    bottom: 0px;
+    left: 0px;
+    @include calc(height, '100% - 50px');
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: fixed;
+    right: auto;
+    width: 20%;
+}
+
 /*Header User menu*/
 .user-menu {
     margin-top: 50px;
