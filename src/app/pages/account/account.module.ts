@@ -49,21 +49,31 @@ import { SpecialtiesPagesComponent } from './specialties/specialties-pages.compo
 import { SingleSpecialtyPageComponent } from './specialties/single-specialty-page/single-specialty-page.component';
 import { AllSpecialtiesPageComponent } from './specialties/all-specialties-page/all-specialties-page.component';
 
+//Authors pages
+import { AuthorsPagesComponent } from './authors/authors-pages.component';
+import { AllAuthorsPageComponent } from './authors/all-authors-page/all-authors-page.component';
+
 @NgModule({
   declarations: [
     DashboardPageComponent,
     AccountTmpComponent,
     MePageComponent,
+
     //Books
     BooksPagesComponent,
     SingleBookPageComponent,
     ActionsBarBookComponent,
     BasicSettingsBookComponent,
     AllBooksPageComponent,
+
     //Specialties
     SpecialtiesPagesComponent,
     AllSpecialtiesPageComponent,
     SingleSpecialtyPageComponent,
+
+    //Authors
+    AuthorsPagesComponent,
+    AllAuthorsPageComponent
   ],
   imports: [
     SharedModule,

@@ -9,6 +9,8 @@ import { BooksPagesComponent } from "./books/books-pages.component";
 import { SpecialtiesPagesComponent } from "./specialties/specialties-pages.component";
 import { SingleSpecialtyPageComponent } from "./specialties/single-specialty-page/single-specialty-page.component";
 import { AllSpecialtiesPageComponent } from "./specialties/all-specialties-page/all-specialties-page.component";
+import { AuthorsPagesComponent } from "./authors/authors-pages.component";
+import { AllAuthorsPageComponent } from "./authors/all-authors-page/all-authors-page.component";
 
 export const AccountRoutes: Routes = [
     { 
@@ -35,6 +37,13 @@ export const AccountRoutes: Routes = [
                     { path: '', component: AllSpecialtiesPageComponent },
                     { path: 'single', component: SingleSpecialtyPageComponent },
                     { path: 'single/:id', component: SingleSpecialtyPageComponent }
+                ]
+            },
+            { 
+                path: 'authors',
+                component: AuthorsPagesComponent,
+                children: [
+                    { path: '', component: AllAuthorsPageComponent },
                 ]
             }
         ]
