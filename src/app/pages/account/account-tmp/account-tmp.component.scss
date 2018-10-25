@@ -59,24 +59,64 @@ input[type="reset"] {
 }
 
 /*Books tables*/
+.filter-form-field {
+    width: 100%;
+
+    .filter-input {
+        border-left-width: 0px;
+        border-right-width: 0px;
+        border-top-width: 0px;
+        border-radius: 0px;
+        height: 40px;
+        margin: 0px;
+        width: 100%;
+    }
+}
+
 .table-books {
     font-size: 14px;
 
-    td.title {
-        width: 40%;
+    mat-cell,
+    mat-header-cell {
+        font-family: $primary-font;
+        font-size: 13px;
+        justify-content: center;
+        padding-bottom: 15px;
+        padding-top: 15px;
     }
 
-    td.image {
-        width: 100px;
+    .title {
+        font-size: 15px;
+        font-weight: bold;
+        justify-content: left;
+        max-width: 35%;
+        min-width: 35%;
+        padding-right: 10px;
+    }
+
+    .image {
+        padding-left: 0px;
+        max-width: 90px;
+        min-width: 90px;
 
         img {
-            max-width: 90%;
+            display: block;
+            margin: auto;
+            width: 90%;
         }
     }
 
-    td.actions {
-        .button {
-            font-size: 14px;
+    .actions {
+        .edit, .actions {
+            color: $primary-gray;
+            cursor: pointer;
+            margin: 0px 5px;
+            text-align: center;
+            width: 30px;
+
+            &:hover, &:active, &[aria-expanded="true"] {
+                color: $primary-color;
+            }
         }
     }
 }

@@ -25,7 +25,8 @@
             "styles": [
               "src/assets/sass/styles.scss",
               "src/assets/libs/icomoon/style.scss",
-              "src/assets/libs/select2/css/select2.min.css"
+              "src/assets/libs/select2/css/select2.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/sass/imports"]
@@ -33,7 +34,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/libs/select2/js/select2.full.min.js",
-              "node_modules/hammerjs/hammer.js"
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
             ]
           },
           "configurations": {
@@ -83,7 +85,8 @@
             "styles": [
               "src/assets/sass/styles.scss",
               "src/assets/libs/icomoon/style.scss",
-              "src/assets/libs/select2/css/select2.min.css"
+              "src/assets/libs/select2/css/select2.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/sass/imports"]
@@ -91,7 +94,8 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/libs/select2/js/select2.full.min.js",
-              "node_modules/hammerjs/hammer.js"
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
             ],
             "assets": [
               "src/favicon.ico",

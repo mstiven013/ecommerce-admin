@@ -161,3 +161,47 @@ nav-menu {
         }
     }
 }
+
+/*Filter box to data tables*/
+.mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: $primary-color;
+    }
+
+    .mat-form-field-ripple {
+        background-color: $primary-color;
+    }
+}
+
+.filter-form-field {
+
+    .mat-form-field-flex {
+        align-items: center;
+    }
+    .mat-form-field-infix {
+        padding: 0px;
+    }
+}
+
+.actions-menu {
+    cursor: pointer;
+    margin-top: 28px;
+
+    li {
+        list-style: none;
+
+        a {
+            color: $gray-dark;
+            cursor: pointer;
+            display: inline-block;
+            font-size: $md-font;
+            padding: 10px 15px;
+            @include transition('all 0.4s ease');
+            width: 100%;
+
+            &:hover, &:active {
+                background-color: $gray-sup-light;
+            }
+        }
+    }
+}

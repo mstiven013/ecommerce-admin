@@ -7,7 +7,9 @@ import { RouterModule } from '@angular/router';
 import { Select2Module } from 'ng2-select2';
 import 'hammerjs';
 import 'materialize-css';
-import { MatTooltipModule, MatTabsModule, MatCheckboxModule, MatProgressBarModule, MatMenuModule } from '@angular/material';
+import { MatTooltipModule, MatTabsModule, MatCheckboxModule, MatProgressBarModule, MatMenuModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatPaginatorIntl } from '@angular/material';
+import { MatSortModule, MatSort } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
@@ -30,7 +32,9 @@ import { AccountModule } from './pages/account/account.module';
 import { LoaderComponent } from './common/loader/loader.component';
 import { NavMenuComponent } from './common/nav-menu/nav-menu.component';
 import { HeaderComponent } from './common/header/header.component';
-import { DataTableModule } from 'angular-6-datatable';
+//import { DataTableModule } from 'angular-6-datatable';
+import { DataTablesModule } from 'angular-datatables';
+import { getSpanishPaginatorIntl } from './services/material/spanish-paginator-intl';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,11 @@ import { DataTableModule } from 'angular-6-datatable';
     MatProgressBarModule,
     MatMenuModule,
     Select2Module,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
 
     //Http module
     HttpClientModule,
@@ -62,17 +71,23 @@ import { DataTableModule } from 'angular-6-datatable';
     ReactiveFormsModule,
 
     //Data table
-    DataTableModule,
+    DataTablesModule,
 
     //Custom modules
     RouterModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() }
+  ],
   exports: [
     LoaderComponent,
     NavMenuComponent,
     HeaderComponent,
-    DataTableModule
+    DataTablesModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   bootstrap: [AppComponent]
 })

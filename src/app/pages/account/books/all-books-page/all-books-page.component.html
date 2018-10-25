@@ -1,57 +1,66 @@
 <app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
 
 <div *ngIf="showInfo">
-    <table *ngIf="books.length > 0" class="table-books" [mfData]="books" #mf="mfDataTable" [mfRowsOnPage]="5">
-        <thead>
-            <tr>
-                <th></th>
-                <th>
-                    <mfDefaultSorter by="title">Título:</mfDefaultSorter>
-                </th>
-                <th>
-                    <mfDefaultSorter by="specialty">Especialidad:</mfDefaultSorter>
-                </th>
-                <th>
-                    <mfDefaultSorter by="isbn">ISBN:</mfDefaultSorter>
-                </th>
-                <th>
-                    <mfDefaultSorter by="state">Estado:</mfDefaultSorter>
-                </th>
-                <th>Acciones:</th>
-            </tr>
-        </thead>
 
-        <tbody>
-            <tr *ngFor="let book of books;">
-                <td class="image">
-                    <img src="{{ book.image }}" alt="">
-                </td>
-                <td class="title">
-                    {{ book.title }}
-                </td>
-                <td class="specialty">
-                    {{ book.specialty[0].title }}
-                </td>
-                <td class="isbn">
-                    {{ book.isbn }}
-                </td>
-                <td class="state">
-                    <span *ngIf="book.state == 'PUBLISHED'">Publicado</span>
-                    <span *ngIf="book.state == 'DRAFT'">Borrador</span>
-                    <span *ngIf="book.state == 'TRASH'">En papelera</span>
-                </td>
-                <td class="actions">
-                    <a routerLink="single/{{ book._id }}" class="button primary">Editar</a>
-                </td>
-            </tr>
-        </tbody>
+    <mat-form-field class="filter-form-field">
+        <input matInput (keyup)="booksFilter($event.target.value)" placeholder="Escribe una palabra clave para encontrar un libro" class="filter-input">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
 
-        <tfoot>
-            <tr>
-                <td colspan="6">
-                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+    <mat-table #table [dataSource]="dataSource" class="table-books">
+
+        <ng-container matColumnDef="image">
+            <mat-header-cell class="image" *matHeaderCellDef>Img.</mat-header-cell>
+            <mat-cell class="image" *matCellDef="let book"> <img src="{{ book.image }}" alt=""> </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="title">
+            <mat-header-cell class="title" *matHeaderCellDef> Título: </mat-header-cell>
+            <mat-cell class="title" *matCellDef="let book"> {{book.title}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="specialty[0].title">
+            <mat-header-cell *matHeaderCellDef> Especialidad: </mat-header-cell>
+            <mat-cell class="specialty" *matCellDef="let book">
+                <span *ngIf="book.specialty.length > 1">{{ book.specialty[1].title }}</span>
+                <span *ngIf="book.specialty.length < 2">{{ book.specialty[0].title }}</span>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="isbn">
+            <mat-header-cell *matHeaderCellDef> ISBN: </mat-header-cell>
+            <mat-cell class="isbn" *matCellDef="let book"> {{book.isbn}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="state">
+            <mat-header-cell *matHeaderCellDef> Estado: </mat-header-cell>
+            <mat-cell class="state" *matCellDef="let book">
+                <span *ngIf="book.state == 'PUBLISHED'">Publicado</span>
+                <span *ngIf="book.state == 'DRAFT'">Borrador</span>
+                <span *ngIf="book.state == 'TRASH'">En papelera</span>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Acciones: </mat-header-cell>
+            <mat-cell class="actions" *matCellDef="let book">
+                <a class="edit"><mat-icon>edit</mat-icon></a>
+
+                <a class="actions" [matMenuTriggerFor]="actionsMenu">
+                    <mat-icon>more_vert</mat-icon>
+                </a>
+
+                <mat-menu #actionsMenu="matMenu" class="actions-menu">
+                    <li><a>Ver</a></li>
+                    <li><a>Eliminar</a></li>
+                </mat-menu>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #MatPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    
 </div>

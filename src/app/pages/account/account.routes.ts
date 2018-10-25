@@ -24,7 +24,8 @@ export const AccountRoutes: Routes = [
                 component: BooksPagesComponent,
                 children: [
                     { path: '', component: AllBooksPageComponent },
-                    { path: 'single', component: SingleBookPageComponent }
+                    { path: 'single', component: SingleBookPageComponent },
+                    { path: 'single/:id', component: SingleBookPageComponent }
                 ]
             },
             { 
