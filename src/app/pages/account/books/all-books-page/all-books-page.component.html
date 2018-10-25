@@ -2,6 +2,17 @@
 
 <div *ngIf="showInfo">
 
+    <div class="row section-header valign-wrapper">
+        <div class="col s12 m6 l6">
+            <p class="title">
+                Libros
+            </p>
+        </div>
+        <div class="col s12 m6 l6 actions">
+            
+        </div>
+    </div>
+
     <mat-form-field class="filter-form-field">
         <input matInput (keyup)="booksFilter($event.target.value)" placeholder="Escribe una palabra clave para encontrar un libro" class="filter-input">
         <mat-icon matSuffix>search</mat-icon>
