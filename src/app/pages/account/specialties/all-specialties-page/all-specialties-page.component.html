@@ -1,18 +1,18 @@
 <app-loader *ngIf="loader.show" [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
 
-
-<div class="row section-header valign-wrapper">
-    <div class="col s12 m6 l6">
-        <p class="title">
-            Especialidades
-        </p>
-    </div>
-    <div class="col s12 m6 l6 actions">
-        
-    </div>
-</div>
-
 <div *ngIf="showInfo" class="content-section">
+
+    <div class="row section-header valign-wrapper">
+        <div class="col s12 m6 l6">
+            <p class="title">
+                Especialidades
+            </p>
+        </div>
+        <div class="col s12 m6 l6 actions">
+            
+        </div>
+    </div>
+    
     <mat-form-field class="filter-form-field">
         <input matInput (keyup)="specialtiesFilter($event.target.value)" placeholder="Escribe una palabra clave para encontrar una especialidad" class="filter-input">
         <mat-icon matSuffix>search</mat-icon>
