@@ -73,7 +73,7 @@ input[type="reset"] {
     }
 }
 
-.table-books {
+.data-table {
     font-size: 14px;
 
     mat-cell,
@@ -83,16 +83,19 @@ input[type="reset"] {
         justify-content: center;
         padding-bottom: 15px;
         padding-top: 15px;
+        text-align: center;
     }
 
     .title {
-        font-size: 15px;
         font-weight: bold;
         justify-content: left;
-        max-width: 35%;
-        min-width: 35%;
         padding-right: 10px;
+        text-align: left;
     }
+        &.books .title {
+            max-width: 35%;
+            min-width: 35%;
+        }
 
     .image {
         padding-left: 0px;

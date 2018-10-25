@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatSort, MatTableDataSource, Sort } from '@angular/material';
 import { GetSpecialtiesService } from '../../../../services/specialties/specialties.service';
 import { MapErrorService } from '../../../../services/error/map-error.service';
 
@@ -9,10 +10,15 @@ import { MapErrorService } from '../../../../services/error/map-error.service';
 })
 export class AllSpecialtiesPageComponent implements OnInit {
 
-  specialties: any = [];
   showInfo: Boolean = false;
   loader = { show: true, position: 'absolute', align: 'top', mode: "indeterminate" }
   error = { show: false, msg: '' }
+
+  specialties: any[] = [];
+  displayedColumns: string[] = ['image', 'title', 'slug', 'parent', 'description', 'actions'];
+  dataSource: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private _getSpecialtiesService: GetSpecialtiesService,
@@ -29,8 +35,14 @@ export class AllSpecialtiesPageComponent implements OnInit {
       .subscribe(
         data => {
           this.specialties = data;
+          this.dataSource = new MatTableDataSource(data);
           this.loader.show = false;
           this.showInfo = true;
+          console.log(data)
+          this.dataSource.sort = this.sort
+          setTimeout(() => {
+            this.dataSource.paginator = this.paginator
+          })
         },
         err => {
           this.loader.show = false;
@@ -44,6 +56,14 @@ export class AllSpecialtiesPageComponent implements OnInit {
           }
         }
       )
+  }
+
+  specialtiesFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }

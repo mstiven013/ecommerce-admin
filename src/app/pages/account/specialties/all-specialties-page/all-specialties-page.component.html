@@ -8,41 +8,68 @@
         </p>
     </div>
     <div class="col s12 m6 l6 actions">
-        Botones de accion
+        
     </div>
 </div>
 
 <div *ngIf="showInfo" class="content-section">
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre:</th>
-                <th>Slug:</th>
-                <th>Descripción:</th>
-                <th>Acciones:</th>
-            </tr>
-        </thead>
+    <mat-form-field class="filter-form-field">
+        <input matInput (keyup)="specialtiesFilter($event.target.value)" placeholder="Escribe una palabra clave para encontrar una especialidad" class="filter-input">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
 
-        <tbody>
-            <tr *ngFor="let spe of specialties;">
-                <ng-template [ngIf]="spe.top">
-                    <td class="title">
-                        {{ spe.title }}
-                    </td>
-                    <td class="slug">
-                        {{ spe.slug }}
-                    </td>
-                    <td class="description">
-                        {{ spe.description }}
-                    </td>
-                    <td class="actions">
-                        <a *ngIf="spe.childs && spe.childs > 0" routerLink="single/{{ spe._id }}" class="button primary">Ver</a>
-                        <a *ngIf="spe.childs && spe.childs < 1" routerLink="single/{{ spe._id }}" class="button primary">Editar</a>
-                    </td>
-                </ng-template>
-            </tr>
-        </tbody>
-    </table>
+    <mat-table #table [dataSource]="dataSource" class="data-table specialties">
+
+        <ng-container matColumnDef="image">
+            <mat-header-cell class="image" *matHeaderCellDef>Img.</mat-header-cell>
+            <mat-cell class="image" *matCellDef="let specialty"> <img src="{{ specialty.image }}" alt=""> </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="title">
+            <mat-header-cell class="title" *matHeaderCellDef> Título: </mat-header-cell>
+            <mat-cell class="title" *matCellDef="let specialty"> {{specialty.title}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="slug">
+            <mat-header-cell *matHeaderCellDef> Slug: </mat-header-cell>
+            <mat-cell class="slug" *matCellDef="let specialty">
+                {{ specialty.slug }}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="parent">
+            <mat-header-cell class="parent" *matHeaderCellDef> Especialidad padre: </mat-header-cell>
+            <mat-cell class="parent" *matCellDef="let specialty">
+                <ng-template [ngIf]="specialty.top">Sin padre</ng-template>
+                <ng-template [ngIf]="!specialty.top">{{ specialty.parent.title }}</ng-template>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef> Descripción: </mat-header-cell>
+            <mat-cell class="description" *matCellDef="let specialty"> {{specialty.description}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Acciones: </mat-header-cell>
+            <mat-cell class="actions" *matCellDef="let specialty">
+                <a class="edit"><mat-icon>edit</mat-icon></a>
+
+                <a class="actions" [matMenuTriggerFor]="actionsMenu">
+                    <mat-icon>more_vert</mat-icon>
+                </a>
+
+                <mat-menu #actionsMenu="matMenu" class="actions-menu">
+                    <li><a>Ver</a></li>
+                    <li><a>Eliminar</a></li>
+                </mat-menu>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #MatPaginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="10"></mat-paginator>
 </div>
 
 <div *ngIf="error.show" class="error-card">
