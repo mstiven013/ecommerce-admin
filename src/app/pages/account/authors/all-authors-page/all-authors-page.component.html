@@ -35,6 +35,9 @@
                 <ng-template [ngIf]="author.specialty.length > 0">
                     <span *ngFor="let spe of author.specialty">{{ spe.title }} </span>
                 </ng-template>
+                <ng-template [ngIf]="author.specialty.length < 1">
+                    Sin especialidad
+                </ng-template>
             </mat-cell>
         </ng-container>
 

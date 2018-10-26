@@ -92,20 +92,16 @@ input[type="reset"] {
         padding-right: 10px;
         text-align: left;
     }
-        &.books .title {
-            max-width: 35%;
-            min-width: 35%;
-        }
 
     .image {
         padding-left: 0px;
-        max-width: 90px;
-        min-width: 90px;
+        max-width: 120px;
+        min-width: 120px;
 
         img {
             display: block;
             margin: auto;
-            width: 90%;
+            width: 50px;
         }
     }
 
@@ -119,6 +115,31 @@ input[type="reset"] {
 
             &:hover, &:active, &[aria-expanded="true"] {
                 color: $primary-color;
+            }
+        }
+    }
+
+    /*Books table*/
+    &.books {
+        .image {
+            img {
+                width: 90px;
+            }
+        }
+
+        .title {
+            max-width: 35%;
+            min-width: 35%;
+        }
+    }
+
+    /*Specialties table*/
+
+    /*Authors table*/
+    &.authors {
+        .image {
+            img {
+                border-radius: 50%;
             }
         }
     }
