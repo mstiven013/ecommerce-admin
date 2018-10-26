@@ -22,7 +22,10 @@
 
         <ng-container matColumnDef="image">
             <mat-header-cell class="image" *matHeaderCellDef>Img.</mat-header-cell>
-            <mat-cell class="image" *matCellDef="let specialty"> <img src="{{ specialty.image }}" alt=""> </mat-cell>
+            <mat-cell class="image" *matCellDef="let specialty">
+                <img *ngIf="specialty.image && specialty.image !== ''" src="{{ specialty.image }}" alt="">
+                <img *ngIf="!specialty.image || specialty.image == ''" src="https://amolca.webussines.com/uploads/images/no-image.jpg" alt="">
+            </mat-cell>
         </ng-container>
         
         <ng-container matColumnDef="title">
