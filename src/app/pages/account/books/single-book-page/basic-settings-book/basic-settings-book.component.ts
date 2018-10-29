@@ -20,7 +20,7 @@ export class BasicSettingsBookComponent {
   }
 
   //Input vars
-  @Input() book: any[];
+  @Input() book: any = {};
 
   charactsData: Array<Select2OptionData> = [
     {
