@@ -127,6 +127,10 @@ app-loader .mat-progress-bar {
     padding: 20px;
 }
 
+.mce-notification.mce-has-close {
+    display: none !important;
+}
+
 /*Nav menu*/
 nav-menu {
     bottom: 0px;
@@ -183,6 +187,16 @@ nav-menu {
     }
 }
 
+/*Select2 data list styles*/
+.select2-container {
+    width: 100% !important;
+
+    .select2-selection--single {
+        height: 45px !important;
+    }
+}
+
+/*Actions menu to data tables*/
 .actions-menu {
     cursor: pointer;
     margin-top: 28px;

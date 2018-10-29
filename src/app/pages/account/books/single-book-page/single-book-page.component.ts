@@ -14,23 +14,7 @@ export class SingleBookPageComponent implements OnInit {
   showForm = false;
 
   //Book object
-  book = {
-    'title': null,
-    'slug': null,
-    'author': null,
-    'userId': null,
-    'isbn': null,
-    'version': null,
-    'publicationYear': null,
-    'countries': null,
-    'specialty': null,
-    'image': null,
-    'description': null,
-    'index': null,
-    'keyPoints': null,
-    'numberPages': null,
-    'volume': null,
-  }
+  book = { 'title': null, 'slug': null, 'author': null, 'userId': null, 'isbn': null, 'version': null, 'publicationYear': null, 'countries': null, 'specialty': null, 'image': null, 'description': null, 'index': null, 'keyPoints': null, 'numberPages': null, 'volume': null };
 
   constructor() { }
 
@@ -39,8 +23,14 @@ export class SingleBookPageComponent implements OnInit {
     this.showForm = true;
   }
 
-  changeSectionBook(e: any) {
+  //Function to save book
+  saveBook(val) {
+    console.log(val)
+    console.log(this.book)
+  }
 
+  //Function to get changes in book page tabs
+  changeSectionBook(e: any) {
     switch (e.index) {
       case 0:
         this.sectionTitle = 'Ajustes básicos'
@@ -64,13 +54,7 @@ export class SingleBookPageComponent implements OnInit {
     
       default:
         break;
-    }
-    
-  }
-
-  //Function to save book
-  saveBook(frm) {
-    console.log(frm.value)
+    } 
   }
 
 }

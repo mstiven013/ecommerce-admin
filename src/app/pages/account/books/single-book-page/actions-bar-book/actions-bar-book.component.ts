@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,4 +7,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['../../../account-tmp/account-tmp.component.scss']
 })
 export class ActionsBarBookComponent {
+
+  @Output() saved = new EventEmitter<boolean>();
+
+  save(val: boolean) {
+    this.saved.emit(val);
+  }
+
 }

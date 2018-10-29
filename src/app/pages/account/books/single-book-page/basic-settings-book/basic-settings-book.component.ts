@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Select2OptionData } from 'ng2-select2';
 
@@ -12,11 +12,15 @@ declare var jQuery: any;
 export class BasicSettingsBookComponent {
 
   //Editor options
-  showEditor = { description: true, index: false, keyPoints: false };
-  editorInit = { 
+  showEditor = { description: true, index: true, keyPoints: false };
+  editorInit = {
+    height: '250',
     plugins: 'code link image imagetools visualblocks visualchars advcode',
     language_url: 'assets/libs/tinymce/lang_es.js'
   }
+
+  //Input vars
+  @Input() book: any[];
 
   charactsData: Array<Select2OptionData> = [
     {
@@ -41,11 +45,11 @@ export class BasicSettingsBookComponent {
   constructor() {}
 
   ngOnInit() {
-    this.showEditor.description = true;
+    this.showEditor.index = true;
   }
 
   ngAfterViewInit() {
-    this.showEditor.description = true;
+    this.showEditor.index = true;
     jQuery('.normal-select').formSelect();
   }
 
@@ -53,19 +57,11 @@ export class BasicSettingsBookComponent {
   loadEditor(e: any) {
     switch (e.index) {
       case 0:
-        this.showEditor.description = true;
-        this.showEditor.index = false;
-        this.showEditor.keyPoints = false;
-        break;
-
-      case 1:
-        this.showEditor.description = false;
         this.showEditor.index = true;
         this.showEditor.keyPoints = false;
         break;
 
-      case 2:
-        this.showEditor.description = false;
+      case 1:
         this.showEditor.index = false;
         this.showEditor.keyPoints = true;
         break;

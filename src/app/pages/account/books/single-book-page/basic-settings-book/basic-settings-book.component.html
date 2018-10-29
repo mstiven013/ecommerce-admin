@@ -1,61 +1,52 @@
 <div class="row">
 
-    <div class="col s12 m5 l5">
-        Portada del libro
+    <div class="col s12 m5 l5 book-image">
+        <img *ngIf="book.image && book.image !== ''" src="{{book.image}}" alt="">
+        <img *ngIf="!book.image || book.image == ''" src="https://amolca.webussines.com/uploads/images/no-image.jpg" alt="">
     </div>
 
     <div class="col s12 m7 l7">
         <!--"Nombre" field-->
         <div class="form-group col s12 m12 l12">
             <label for="title">Nombre del libro:</label>
-            <input type="text" id="title" name="title" placeholder="Escribe el nombre del libro">
+            <input type="text" id="title" name="title" [(ngModel)]="book.title" placeholder="Escribe el nombre del libro">
         </div>
 
         <!--"ISBN" field-->
         <div class="form-group col s12 m6 l6">
             <label for="isbn">ISBN del libro:</label>
-            <input type="text" id="isbn" name="isbn" placeholder="ISBN del libro">
+            <input type="text" id="isbn" name="isbn" [(ngModel)]="book.isbn" placeholder="ISBN del libro">
         </div>
 
-        <!--"ISBN" field-->
+        <!--"Estado del producto" field-->
         <div class="form-group col s12 m6 l6">
-            <label for="type">Tipo de producto:</label>
+            <label for="type">Estado:</label>
             <select name="type" id="type" class="normal-select">
                 <option value="0" selected disabled>Seleccione una opción</option>
-                <option value="STANDARD">Libro estandár</option>
-                <option value="PACK">Pack de libros</option>
+                <option value="STANDARD">Disponible</option>
+                <option value="STANDARD">Agotado</option>
+                <option value="STANDARD">Reservado</option>
             </select>
+        </div>
+
+        <!--"Small description" field-->
+        <div class="form-group col s12 m12 l12">
+            <label for="description">Descripción corta:</label>
+            <editor apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
         </div>
     </div>
     
     <div class="col s12 m12 l12">
         <mat-tab-group class="basic-settings-book-tabs" (selectedTabChange)="loadEditor($event)">
-            <!--Description tab-->
-            <mat-tab label="Descripción">
-                <editor *ngIf="showEditor.description" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
-            </mat-tab>
             <!--Index tab-->
             <mat-tab label="Índice">
                 <editor *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
             </mat-tab>
+            <!--Key points tab-->
             <mat-tab label="Puntos clave">
                 <editor *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
             </mat-tab>
         </mat-tab-group>
-    </div>
-
-    <div class="col s12 m7 l7">
-        <div class="input-field col s12 m4 l4">
-            <p>Caracteristica:</p>
-            <select2 [data]="charactsData"></select2>
-        </div>
-        <div class="input-field col s12 m4 l4">
-            <p>Valor predefinido:</p>
-            <select2 [data]="charactsData"></select2>
-        </div>
-        <div class="col s12 m4 l4">
-            <input type="text" name="attr-value-custom" id="attr-value-custom">
-        </div>
     </div>
 
 </div>
