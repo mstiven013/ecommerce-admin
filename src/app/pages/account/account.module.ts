@@ -58,6 +58,11 @@ import { UsersPagesComponent } from './users/users-pages.component';
 import { AllUsersPageComponent } from './users/all-users-page/all-users-page.component';
 import { SingleUserPageComponent } from './users/single-user-page/single-user-page.component';
 
+//Orders pages
+import { OrdersPagesComponent } from './orders/orders.pages.component';
+import { AllOrdersPageComponent } from './orders/all-orders-page/all-orders-page.component';
+import { SingleOrderPageComponent } from './orders/single-order-page/single-order-page.component';
+
 @NgModule({
   declarations: [
     DashboardPageComponent,
@@ -83,7 +88,12 @@ import { SingleUserPageComponent } from './users/single-user-page/single-user-pa
     //Users
     UsersPagesComponent,
     AllUsersPageComponent,
-    SingleUserPageComponent
+    SingleUserPageComponent,
+
+    //Orders
+    OrdersPagesComponent,
+    AllOrdersPageComponent,
+    SingleOrderPageComponent
   ],
   imports: [
     SharedModule,
