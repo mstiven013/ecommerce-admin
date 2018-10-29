@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
 
     //Redirect to account page if user is logged
     if( localStorage.getItem('U53r') !== null && localStorage.getItem('4ccT0k3n') !== null) {
-      this._router.navigate(['/account']);
+      this._router.navigate(['/am-admin/account']);
     }
 
     //Generate form
