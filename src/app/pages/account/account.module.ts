@@ -53,6 +53,11 @@ import { AllSpecialtiesPageComponent } from './specialties/all-specialties-page/
 import { AuthorsPagesComponent } from './authors/authors-pages.component';
 import { AllAuthorsPageComponent } from './authors/all-authors-page/all-authors-page.component';
 
+//Users pages
+import { UsersPagesComponent } from './users/users-pages.component';
+import { AllUsersPageComponent } from './users/all-users-page/all-users-page.component';
+import { SingleUserPageComponent } from './users/single-user-page/single-user-page.component';
+
 @NgModule({
   declarations: [
     DashboardPageComponent,
@@ -73,7 +78,12 @@ import { AllAuthorsPageComponent } from './authors/all-authors-page/all-authors-
 
     //Authors
     AuthorsPagesComponent,
-    AllAuthorsPageComponent
+    AllAuthorsPageComponent,
+
+    //Users
+    UsersPagesComponent,
+    AllUsersPageComponent,
+    SingleUserPageComponent
   ],
   imports: [
     SharedModule,

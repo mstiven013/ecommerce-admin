@@ -11,6 +11,9 @@ import { SingleSpecialtyPageComponent } from "./specialties/single-specialty-pag
 import { AllSpecialtiesPageComponent } from "./specialties/all-specialties-page/all-specialties-page.component";
 import { AuthorsPagesComponent } from "./authors/authors-pages.component";
 import { AllAuthorsPageComponent } from "./authors/all-authors-page/all-authors-page.component";
+import { UsersPagesComponent } from "./users/users-pages.component";
+import { AllUsersPageComponent } from "./users/all-users-page/all-users-page.component";
+import { SingleUserPageComponent } from "./users/single-user-page/single-user-page.component";
 
 export const AccountRoutes: Routes = [
     { 
@@ -45,7 +48,16 @@ export const AccountRoutes: Routes = [
                 children: [
                     { path: '', component: AllAuthorsPageComponent },
                 ]
-            }
+            },
+            { 
+                path: 'users',
+                component: UsersPagesComponent,
+                children: [
+                    { path: '', component: AllUsersPageComponent },
+                    { path: 'single', component: SingleUserPageComponent },
+                    { path: 'single/:id', component: SingleUserPageComponent }
+                ]
+            },
         ]
     }
 ]
