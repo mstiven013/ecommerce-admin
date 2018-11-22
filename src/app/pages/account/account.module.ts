@@ -63,6 +63,7 @@ import { OrdersPagesComponent } from './orders/orders.pages.component';
 import { AllOrdersPageComponent } from './orders/all-orders-page/all-orders-page.component';
 import { SingleOrderPageComponent } from './orders/single-order-page/single-order-page.component';
 import { PricesSettingsBookComponent } from './books/single-book-page/prices-settings-book/prices-settings-book.component';
+import { AttributesSettingsBookComponent } from './books/single-book-page/attributes-settings-book/attributes-settings-book.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { PricesSettingsBookComponent } from './books/single-book-page/prices-set
     BasicSettingsBookComponent,
     AllBooksPageComponent,
     PricesSettingsBookComponent,
+    AttributesSettingsBookComponent,
 
     //Specialties
     SpecialtiesPagesComponent,

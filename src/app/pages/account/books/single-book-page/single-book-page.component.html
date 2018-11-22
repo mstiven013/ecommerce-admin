@@ -16,27 +16,12 @@
     <mat-tab-group class="single-book-tabs single-book-page" (selectedTabChange)="changeSectionBook($event)">
         <!--Description tab-->
         <mat-tab label="Ajustes básicos">
-            <basic-settings-book [book]="book"></basic-settings-book>
+            <basic-settings-book [book]="book" [showEditor]="showEditor"></basic-settings-book>
         </mat-tab>
         <!--Index tab-->
-        <!--<mat-tab label="Inventario">
-            <div class="row">
-                <div class="col s12 m12 l12">
-                    <div class="form-group col s12 m3 l3">
-                        <label>Caracteristica:</label>
-                        <select2 [data]="charactsData"></select2>
-                    </div>
-                    <div class="form-group col s12 m3 l3">
-                        <label>Valor predefinido:</label>
-                        <select2 [data]="charactsData"></select2>
-                    </div>
-                    <div class="form-group col s12 m3 l3">
-                        <label>Valor personalizado</label>
-                        <input type="text" name="attr-value-custom" id="attr-value-custom">
-                    </div>
-                </div>
-            </div>
-        </mat-tab>-->
+        <mat-tab label="Atributos">
+            <attributes-settings-book [book]="book"></attributes-settings-book>
+        </mat-tab>
         <mat-tab label="Precios">
             <prices-settings-book [book]="book"></prices-settings-book>
         </mat-tab>

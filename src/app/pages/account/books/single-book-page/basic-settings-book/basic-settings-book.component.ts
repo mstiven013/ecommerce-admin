@@ -11,9 +11,19 @@ declare var jQuery: any;
 })
 export class BasicSettingsBookComponent {
 
-  //Editor options
-  showEditor = { description: true, index: true, keyPoints: false };
-  editorInit = {
+  indexInit = {
+    height: '250',
+    plugins: 'code link image imagetools visualblocks visualchars advcode',
+    language_url: 'assets/libs/tinymce/lang_es.js'
+  }
+
+  descInit = {
+    height: '250',
+    plugins: 'code link image imagetools visualblocks visualchars advcode',
+    language_url: 'assets/libs/tinymce/lang_es.js'
+  }
+
+  keypointsInit = {
     height: '250',
     plugins: 'code link image imagetools visualblocks visualchars advcode',
     language_url: 'assets/libs/tinymce/lang_es.js'
@@ -21,6 +31,7 @@ export class BasicSettingsBookComponent {
 
   //Input vars
   @Input() book: any = {};
+  @Input() showEditor: any = {};
 
   selectOptions = [
     { value: "PUBLISHED", name: "Publicado" },
@@ -32,10 +43,15 @@ export class BasicSettingsBookComponent {
 
   ngOnInit() {
     this.showEditor.index = true;
+    this.showEditor.keyPoints = false;
+    console.log(this.book)
   }
 
   ngAfterViewInit() {
+    this.showEditor.description = true;
     this.showEditor.index = true;
+    this.showEditor.keyPoints = false;
+    console.log(this.showEditor)
     jQuery('.normal-select').formSelect();
   }
 

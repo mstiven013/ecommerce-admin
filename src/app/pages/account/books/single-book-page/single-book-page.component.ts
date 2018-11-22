@@ -12,6 +12,9 @@ declare var jQuery;
 })
 export class SingleBookPageComponent implements OnInit {
 
+  //Editor options
+  showEditor = { description: true, index: true, keyPoints: false };
+
   //Declare vars
   private sub: any;
   sectionTitle: any = 'Ajustes básicos';
@@ -63,6 +66,7 @@ export class SingleBookPageComponent implements OnInit {
           //console.log(data)
           this.book = data;
           this.loader.show = false;
+          jQuery('.normal-select').formSelect();
         },
         err => {
           this.loader.show = false;
@@ -76,16 +80,17 @@ export class SingleBookPageComponent implements OnInit {
     switch (e.index) {
       case 0:
         this.sectionTitle = 'Ajustes básicos'
+        this.showEditor.description = true;
+        this.showEditor.index = true;
         jQuery('.normal-select').formSelect();
         break;
       
-      /*
       case 1:
-        this.sectionTitle = 'Inventario'
+        this.sectionTitle = 'Atributos'
+        jQuery('.normal-select').formSelect();
         break;
-        */
 
-      case 1:
+      case 2:
         this.sectionTitle = 'Precios'
         jQuery('.normal-select').formSelect();
         break;

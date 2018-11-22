@@ -29,7 +29,7 @@
         <!--"Small description" field-->
         <div class="form-group col s12 m12 l12">
             <label for="description">Descripción corta:</label>
-            <editor [(ngModel)]="book.description" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+            <editor [(ngModel)]="book.description" *ngIf="showEditor.description" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="descInit"></editor>
         </div>
     </div>
     
@@ -37,11 +37,11 @@
         <mat-tab-group class="basic-settings-book-tabs" (selectedTabChange)="loadEditor($event)">
             <!--Index tab-->
             <mat-tab label="Índice">
-                <editor *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit" [(ngModel)]="book.index"></editor>
+                <editor [(ngModel)]="book.index" *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="indexInit"></editor>
             </mat-tab>
             <!--Key points tab-->
             <mat-tab label="Puntos clave">
-                <editor *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"  [(ngModel)]="book.keyPoints"></editor>
+                <editor [(ngModel)]="book.keyPoints" *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="keypointsInit"></editor>
             </mat-tab>
         </mat-tab-group>
     </div>

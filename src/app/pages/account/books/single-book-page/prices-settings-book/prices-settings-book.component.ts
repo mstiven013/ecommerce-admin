@@ -24,6 +24,7 @@ export class PricesSettingsBookComponent {
   constructor() {}
 
   ngOnInit() {
+    jQuery('.normal-select').formSelect();
   }
 
   ngAfterViewInit() {
@@ -33,5 +34,16 @@ export class PricesSettingsBookComponent {
   addCountry() {
     jQuery('.normal-select').formSelect();
     this.book.countries.push({name: '', price: 0})
+  }
+
+  deleteCountry(name) {
+    for (let i = 0; i < this.book.countries.length; i++) {
+      const element = this.book.countries[i];
+
+      if(element.name == name) {
+        this.book.countries.splice(i, 1);
+      }
+      
+    }
   }
 }
