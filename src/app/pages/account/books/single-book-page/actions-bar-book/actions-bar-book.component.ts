@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ActionsBarBookComponent {
 
   @Output() saved = new EventEmitter<boolean>();
+  @Input() textBtn: any = 'Crear libro';
 
   save(val: boolean) {
     this.saved.emit(val);

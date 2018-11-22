@@ -55,7 +55,9 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef> Acciones: </mat-header-cell>
             <mat-cell class="actions" *matCellDef="let book">
-                <a class="edit"><mat-icon>edit</mat-icon></a>
+                <a class="edit" routerLink="/account/books/edit/{{book._id}}">
+                    <mat-icon>edit</mat-icon>
+                </a>
 
                 <a class="actions" [matMenuTriggerFor]="actionsMenu">
                     <mat-icon>more_vert</mat-icon>

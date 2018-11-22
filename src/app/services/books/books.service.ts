@@ -59,14 +59,36 @@ export class GetBooksService {
 
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class CreateBooksService {
   constructor() { }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class DeleteBooksService {
   constructor() { }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class UpdateBooksService {
-  constructor() { }
+  constructor(
+    private _http: Http
+  ) { }
+
+  update(update, id) {
+
+    let token = localStorage.getItem('4ccT0k3n');
+
+    let headers = new Headers({'Content-type': 'application/json', 'Authorization': 'Bearer '+ token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.put(config.API_URL + '/books/' + id, update, options);
+
+  }
 }

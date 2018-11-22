@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { GetBooksService, UpdateBooksService } from 'src/app/services/books/books.service';
+import { ActivatedRoute } from '@angular/router';
+
+declare var jQuery;
 
 @Component({
   selector: 'app-single-book-page',
@@ -9,24 +13,62 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class SingleBookPageComponent implements OnInit {
 
   //Declare vars
+  private sub: any;
   sectionTitle: any = 'Ajustes básicos';
   loader = { show: true, position: 'absolute', align: 'top', mode: "indeterminate" }
   showForm = false;
 
   //Book object
-  book = { 'title': null, 'slug': null, 'author': null, 'userId': null, 'isbn': null, 'version': null, 'publicationYear': null, 'countries': null, 'specialty': null, 'image': null, 'description': null, 'index': null, 'keyPoints': null, 'numberPages': null, 'volume': null };
+  book = { _id: null, 'title': null, 'slug': null, 'author': null, 'userId': null, 'isbn': null, 'version': null, 'publicationYear': null, 'countries': null, 'specialty': null, 'image': null, 'description': null, 'index': null, 'keyPoints': null, 'numberPages': null, 'volume': null };
 
-  constructor() { }
+  constructor(
+    protected _getBookService: GetBooksService,
+    protected _updateBookService: UpdateBooksService,
+    protected _activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.loader.show = false;
-    this.showForm = true;
+    this.sub = this._activatedRoute.params.subscribe(params => {
+      this.getBookData(params.id)
+    });
+  }
+
+  ngAfterViewInit() {
+    jQuery('.normal-select').formSelect();
+  }
+
+  getBookData(id) {
+    this._getBookService.getBooksById(id)
+      .map(resp => resp.json())
+      .subscribe(
+        data => {
+          jQuery('.normal-select').formSelect();
+          this.book = data;
+          this.loader.show = false;
+          this.showForm = true;
+        },
+        err => {
+          console.log(err)
+        }
+      )
   }
 
   //Function to save book
   saveBook(val) {
-    console.log(val)
-    console.log(this.book)
+    this.loader.show = true;
+    this._updateBookService.update(this.book, this.book._id)
+      .map(resp => resp.json())
+      .subscribe(
+        data => {
+          //console.log(data)
+          this.book = data;
+          this.loader.show = false;
+        },
+        err => {
+          this.loader.show = false;
+          console.log(err)
+        }
+      )
   }
 
   //Function to get changes in book page tabs
@@ -34,16 +76,21 @@ export class SingleBookPageComponent implements OnInit {
     switch (e.index) {
       case 0:
         this.sectionTitle = 'Ajustes básicos'
+        jQuery('.normal-select').formSelect();
         break;
       
+      /*
       case 1:
         this.sectionTitle = 'Inventario'
         break;
+        */
 
-      case 2:
+      case 1:
         this.sectionTitle = 'Precios'
+        jQuery('.normal-select').formSelect();
         break;
 
+      /*
       case 3:
         this.sectionTitle = 'Transporte'
         break;
@@ -51,6 +98,7 @@ export class SingleBookPageComponent implements OnInit {
       case 4:
         this.sectionTitle = 'Optimización SEO'
         break;
+        */
     
       default:
         break;

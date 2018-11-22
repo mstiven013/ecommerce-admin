@@ -1,0 +1,27 @@
+<div *ngIf="book.countries.length > 0">
+    <div *ngFor="let country of book.countries" class="row">
+        <div class="form-group country-name col s12 m12 l12">
+            <p class="subtitle">{{country.name}}</p>
+        </div>
+        <div class="form-group col s12 m4 l4">
+            <label for="name">Nombre del país:</label>
+            <input type="text" id="name" name="name" [(ngModel)]="country.name" placeholder="Escribe el nombre del país">
+        </div>
+
+        <div class="form-group col s12 m4 l4">
+            <label for="price">Precio:</label>
+            <input type="text" id="price" name="price" [(ngModel)]="country.price" placeholder="Escribe el precio del libro">
+        </div>
+
+        <div class="form-group col s12 m4 l4">
+            <label for="state">Estado:</label>
+            <select name="state" id="state" [(ngModel)]="country.state" class="normal-select">
+                <option *ngFor="let option of stateOptions" [ngValue]="option.value">{{option.name}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button (click)="addCountry()" class="button primary">Agregar país</button>
+</div>

@@ -21,18 +21,15 @@
         <!--"Estado del producto" field-->
         <div class="form-group col s12 m6 l6">
             <label for="type">Estado:</label>
-            <select name="type" id="type" class="normal-select">
-                <option value="0" selected disabled>Seleccione una opción</option>
-                <option value="STANDARD">Disponible</option>
-                <option value="STANDARD">Agotado</option>
-                <option value="STANDARD">Reservado</option>
+            <select type="text" name="type" id="type" [(ngModel)]="book.state" class="normal-select">
+                <option *ngFor="let option of selectOptions" [ngValue]="option.value">{{option.name}}</option>
             </select>
         </div>
 
         <!--"Small description" field-->
         <div class="form-group col s12 m12 l12">
             <label for="description">Descripción corta:</label>
-            <editor apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+            <editor [(ngModel)]="book.description" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
         </div>
     </div>
     
@@ -40,11 +37,11 @@
         <mat-tab-group class="basic-settings-book-tabs" (selectedTabChange)="loadEditor($event)">
             <!--Index tab-->
             <mat-tab label="Índice">
-                <editor *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+                <editor *ngIf="showEditor.index" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit" [(ngModel)]="book.index"></editor>
             </mat-tab>
             <!--Key points tab-->
             <mat-tab label="Puntos clave">
-                <editor *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"></editor>
+                <editor *ngIf="showEditor.keyPoints" apiKey="1icfygu7db6ym5ibmufjkk2myppelx6v827sc9rq8xt1eo2n" [init]="editorInit"  [(ngModel)]="book.keyPoints"></editor>
             </mat-tab>
         </mat-tab-group>
     </div>

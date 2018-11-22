@@ -22,25 +22,11 @@ export class BasicSettingsBookComponent {
   //Input vars
   @Input() book: any = {};
 
-  charactsData: Array<Select2OptionData> = [
-    {
-      id: 'basic1',
-      text: 'Basic 1'
-    },
-    {
-      id: 'basic2',
-      disabled: true,
-      text: 'Basic 2'
-    },
-    {
-      id: 'basic3',
-      text: 'Basic 3'
-    },
-    {
-      id: 'basic4',
-      text: 'Basic 4'
-    }
-  ];
+  selectOptions = [
+    { value: "PUBLISHED", name: "Publicado" },
+    { value: "DRAFT", name: "Borrador" },
+    { value: "TRASH", name: "Papelera" }
+  ]
 
   constructor() {}
 
