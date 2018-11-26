@@ -18,7 +18,7 @@ export class GetBooksService {
     let headers = new Headers({'Content-type': 'application/json', 'Authorization': 'Bearer '+ token });
     let options = new RequestOptions({ headers: headers });
 
-    return this._http.get(config.API_URL + '/books', options);
+    return this._http.get(config.API_URL + '/books?limit=100', options);
   }
 
   getBooksById(id) {
