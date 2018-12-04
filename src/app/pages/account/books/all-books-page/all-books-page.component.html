@@ -75,5 +75,9 @@
     </mat-table>
     <mat-paginator #MatPaginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
+    <div class="loader-more-books" *ngIf="loader.moreBooks">
+        <app-loader [position]="loader.position" [align]="loader.align" [mode]="loader.mode"></app-loader>
+        Cargando más libros...
+    </div>
     
 </div>

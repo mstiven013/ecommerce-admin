@@ -12,13 +12,15 @@ export class GetBooksService {
     private _http: Http
   ) { }
 
-  getAllBooks() {
+  getAllBooks(limit, skip) {
     let token = localStorage.getItem('4ccT0k3n');
 
     let headers = new Headers({'Content-type': 'application/json', 'Authorization': 'Bearer '+ token });
     let options = new RequestOptions({ headers: headers });
 
-    return this._http.get(config.API_URL + '/books?limit=100', options);
+    let params = `?limit=${limit}&skip=${skip}`;
+
+    return this._http.get(config.API_URL + '/books' + params, options);
   }
 
   getBooksById(id) {
